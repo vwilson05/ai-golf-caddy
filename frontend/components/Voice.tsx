@@ -55,6 +55,15 @@ export default function Voice() {
     }
   }, []);
 
+  // Auto-parse when voice stops and we have text
+  const prevListening = useRef(false);
+  useEffect(() => {
+    if (prevListening.current && !isListening && textInput.trim()) {
+      handleParse(textInput);
+    }
+    prevListening.current = isListening;
+  }, [isListening]);
+
   const toggleListening = () => {
     if (!recognitionRef.current) return;
     if (isListening) {
@@ -212,10 +221,16 @@ export default function Voice() {
           <div className="voice-no-speech">Voice not supported in this browser. Use text input below.</div>
         )}
         {isListening && <div className="voice-listening-text">Listening...</div>}
-        {transcript && !isListening && (
-          <div className="voice-transcript">"{transcript}"</div>
-        )}
+        {isParsing && <div className="voice-listening-text">Understanding...</div>}
       </div>
+
+      {/* Parsed result — shown prominently */}
+      {parsedResult && renderParsed(parsedResult)}
+
+      {/* Raw transcript — small and muted */}
+      {transcript && !isListening && (
+        <div className="voice-raw-transcript">You said: "{transcript}"</div>
+      )}
 
       {/* Text input fallback */}
       <div className="voice-text-area">
@@ -234,9 +249,6 @@ export default function Voice() {
           {isParsing ? "Parsing..." : "Parse"}
         </button>
       </div>
-
-      {/* Parsed result */}
-      {parsedResult && renderParsed(parsedResult)}
 
       {/* Example phrases */}
       <div className="voice-examples">

@@ -1686,6 +1686,15 @@ body {
   font-size: 0.95rem;
 }
 
+.voice-raw-transcript {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-top: 8px;
+  opacity: 0.6;
+}
+
 .voice-text-area {
   margin: 20px 0;
 }
