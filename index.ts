@@ -401,8 +401,8 @@ const server = Bun.serve({
 });
 
 console.log(`
-  ⛳ Caddy — AI Golf Caddy
-  🌐 http://localhost:${PORT}
-  📱 http://localhost:${PORT}/app
-  ${isDev ? "🔧 Dev mode" : "🚀 Production mode"}
+  Caddy — AI Golf Caddy
+  Web: http://localhost:${PORT}
+  App: http://localhost:${PORT}/app
+  ${isDev ? "[DEV] Dev mode" : "[PROD] Production mode"}
 `);

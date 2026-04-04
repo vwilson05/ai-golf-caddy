@@ -159,7 +159,14 @@ body {
 }
 
 .logo-icon {
-  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+}
+.logo-icon svg {
+  width: 22px;
+  height: 22px;
 }
 
 .logo-text {
@@ -485,9 +492,15 @@ body {
 }
 
 .pain-icon {
-  font-size: 2rem;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 12px;
+  color: var(--green-mid);
+}
+.pain-icon svg {
+  width: 28px;
+  height: 28px;
 }
 
 .pain-text {
@@ -522,9 +535,19 @@ body {
 }
 
 .feature-icon {
-  font-size: 1.8rem;
-  display: block;
-  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(27, 67, 50, 0.06);
+  margin-bottom: 14px;
+  color: var(--green-deep);
+}
+.feature-icon svg {
+  width: 24px;
+  height: 24px;
 }
 
 .feature-title {
@@ -715,9 +738,19 @@ body {
 }
 
 .platform-icon {
-  font-size: 2.2rem;
-  display: block;
-  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(27, 67, 50, 0.06);
+  margin: 0 auto 0.8rem;
+  color: var(--green-deep);
+}
+.platform-icon svg {
+  width: 28px;
+  height: 28px;
 }
 
 .platform-card h3 {
@@ -900,7 +933,17 @@ body {
 }
 
 .tab-icon {
-  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+}
+.tab-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.tab-btn.active .tab-icon {
+  color: var(--green-deep);
 }
 
 .tab-label {
