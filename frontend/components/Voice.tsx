@@ -133,32 +133,48 @@ export default function Voice() {
     "Back 9, they're pressing for 2 units",
   ];
 
+  const [editedFields, setEditedFields] = useState<Record<string, string>>({});
+  const [editingField, setEditingField] = useState<string | null>(null);
+  const [removedFields, setRemovedFields] = useState<Set<string>>(new Set());
+
+  // Reset edits when new parse comes in
+  useEffect(() => {
+    if (parsedResult) {
+      setEditedFields({});
+      setEditingField(null);
+      setRemovedFields(new Set());
+    }
+  }, [parsedResult]);
+
   const renderParsed = (data: ParsedResult) => {
     const p = data.parsed || {};
-    const fields: { label: string; value: string }[] = [];
+    const fields: { label: string; value: string; key: string }[] = [];
 
-    if (p.hole) fields.push({ label: "Hole", value: String(p.hole) });
+    if (p.hole) fields.push({ label: "Hole", value: String(p.hole), key: "hole" });
     if (p.scoreName || p.score !== undefined) {
       const name = p.scoreName
         ? p.scoreName.charAt(0).toUpperCase() + p.scoreName.slice(1)
         : "";
       const num = p.score !== undefined ? `(${p.score})` : "";
-      fields.push({ label: "Score", value: `${name} ${num}`.trim() });
+      fields.push({ label: "Score", value: `${name} ${num}`.trim(), key: "score" });
     }
-    if (p.putts !== undefined) fields.push({ label: "Putts", value: String(p.putts) });
-    if (p.club) fields.push({ label: "Club", value: p.club });
-    if (p.distance) fields.push({ label: "Distance", value: `${p.distance} yds` });
+    if (p.putts !== undefined) fields.push({ label: "Putts", value: String(p.putts), key: "putts" });
+    if (p.club) fields.push({ label: "Club", value: p.club, key: "club" });
+    if (p.distance) fields.push({ label: "Distance", value: `${p.distance} yds`, key: "distance" });
     if (p.fairway !== undefined && p.fairway !== null)
       fields.push({
         label: "Fairway",
         value: p.fairway ? "Hit" : `Missed${p.fairwayMiss ? ` ${p.fairwayMiss}` : ""}`,
+        key: "fairway",
       });
-    if (p.gir) fields.push({ label: "GIR", value: "Yes" });
+    if (p.gir) fields.push({ label: "GIR", value: "Yes", key: "gir" });
     if (p.penalties)
-      fields.push({ label: "Penalties", value: `${p.penalties} (${p.penaltyType || "penalty"})` });
-    if (p.journal) fields.push({ label: "Journal", value: p.journal });
-    if (p.betUpdate) fields.push({ label: "Match", value: p.betUpdate });
-    if (p.pressInfo) fields.push({ label: "Press", value: p.pressInfo });
+      fields.push({ label: "Penalties", value: `${p.penalties} (${p.penaltyType || "penalty"})`, key: "penalties" });
+    if (p.journal) fields.push({ label: "Journal", value: p.journal, key: "journal" });
+    if (p.betUpdate) fields.push({ label: "Match", value: p.betUpdate, key: "betUpdate" });
+    if (p.pressInfo) fields.push({ label: "Press", value: p.pressInfo, key: "pressInfo" });
+
+    const visibleFields = fields.filter(f => !removedFields.has(f.key));
 
     return (
       <div className="voice-result-card">
@@ -166,15 +182,37 @@ export default function Voice() {
           <span className={`source-badge ${data.source === "ai" ? "source-ai" : "source-parser"}`}>
             {data.source === "ai" ? "AI Parsed" : "Instant Parse"}
           </span>
-          <span className="confidence-badge">
-            {Math.round((data.confidence || 0) * 100)}% confidence
-          </span>
+          <span className="voice-edit-hint">Tap to edit, X to remove</span>
         </div>
         <div className="voice-result-fields">
-          {fields.map((f, i) => (
-            <div key={i} className="voice-field">
+          {visibleFields.map((f) => (
+            <div key={f.key} className="voice-field">
               <span className="voice-field-label">{f.label}</span>
-              <span className="voice-field-value">{f.value}</span>
+              {editingField === f.key ? (
+                <input
+                  className="voice-field-edit"
+                  autoFocus
+                  defaultValue={editedFields[f.key] ?? f.value}
+                  onBlur={(e) => {
+                    setEditedFields(prev => ({ ...prev, [f.key]: e.target.value }));
+                    setEditingField(null);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") (e.target as HTMLInputElement).blur();
+                  }}
+                />
+              ) : (
+                <span className="voice-field-value" onClick={() => setEditingField(f.key)}>
+                  {editedFields[f.key] ?? f.value}
+                </span>
+              )}
+              <button
+                className="voice-field-remove"
+                onClick={() => setRemovedFields(prev => new Set([...prev, f.key]))}
+                title="Remove this field"
+              >
+                &times;
+              </button>
             </div>
           ))}
         </div>

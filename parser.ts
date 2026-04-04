@@ -123,10 +123,10 @@ export function parseGolfInput(text: string): ParsedGolfInput {
 
   // Extract hole number
   const holePatterns = [
-    /hole\s+(\d{1,2})/i,
-    /on\s+(\d{1,2})\b/i,
-    /\#(\d{1,2})\b/,
     /\b(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth|thirteenth|fourteenth|fifteenth|sixteenth|seventeenth|eighteenth)\s+hole/i,
+    /hole\s+(\d{1,2})(?!\d)/i,
+    /on\s+(\d{1,2})(?!\d)\b/i,
+    /\#(\d{1,2})(?!\d)\b/,
   ];
 
   const wordToNum: Record<string, number> = {
@@ -195,7 +195,7 @@ export function parseGolfInput(text: string): ParsedGolfInput {
   // Extract penalties
   const penaltyPatterns = [
     { pat: /\b(ob|out of bounds)\b/i, type: 'OB' },
-    { pat: /\b(water|in the water|wet)\b/i, type: 'Water' },
+    { pat: /\b(in the water|into the water|hit the water|went in the water|water ball|water hazard penalty)\b/i, type: 'Water' },
     { pat: /\b(lost ball)\b/i, type: 'Lost Ball' },
     { pat: /\b(penalty|drop|took a drop)\b/i, type: 'Penalty' },
     { pat: /\b(lateral)\b/i, type: 'Lateral' },

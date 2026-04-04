@@ -461,6 +461,62 @@ body {
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-dark);
+  cursor: pointer;
+  border-bottom: 1px dashed transparent;
+}
+
+.voice-field-value:hover {
+  border-bottom-color: var(--green-mid);
+}
+
+.voice-field {
+  position: relative;
+}
+
+.voice-field-edit {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  border: 1px solid var(--green-mid);
+  border-radius: 4px;
+  padding: 2px 6px;
+  width: 100%;
+  background: var(--white);
+  outline: none;
+}
+
+.voice-field-remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.voice-field:hover .voice-field-remove {
+  opacity: 1;
+}
+
+.voice-field-remove:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.voice-edit-hint {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  font-style: italic;
 }
 
 .demo-error {
