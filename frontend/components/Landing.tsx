@@ -12,6 +12,31 @@ export default function Landing({ onTryDemo }: Props) {
   );
   const [demoParsed, setDemoParsed] = useState<any>(null);
   const [demoParsing, setDemoParsing] = useState(false);
+  const [demoListening, setDemoListening] = useState(false);
+  const demoRecognitionRef = React.useRef<any>(null);
+
+  React.useEffect(() => {
+    const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if (SR) {
+      const rec = new SR();
+      rec.continuous = false;
+      rec.interimResults = true;
+      rec.lang = "en-US";
+      rec.onresult = (e: any) => {
+        let final = "";
+        let interim = "";
+        for (let i = 0; i < e.results.length; i++) {
+          if (e.results[i].isFinal) final += e.results[i][0].transcript;
+          else interim += e.results[i][0].transcript;
+        }
+        setDemoText(final || interim);
+        if (final) setDemoParsed(null);
+      };
+      rec.onend = () => setDemoListening(false);
+      rec.onerror = () => setDemoListening(false);
+      demoRecognitionRef.current = rec;
+    }
+  }, []);
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -199,7 +224,7 @@ export default function Landing({ onTryDemo }: Props) {
       <section className="section demo-section">
         <div className="section-inner">
           <h2 className="section-title">See it in action</h2>
-          <p className="section-subtitle">Type any golf input and watch it parse in real-time</p>
+          <p className="section-subtitle">Tap the mic and talk, or type — watch it parse in real-time</p>
           <div className="demo-box">
             <textarea
               className="demo-textarea"
@@ -208,13 +233,37 @@ export default function Landing({ onTryDemo }: Props) {
               rows={3}
               placeholder="Try: 'Hole 5, bogey, 2 putts, hit driver 260, had 170 in...'"
             />
-            <button
-              className="btn btn-primary demo-parse-btn"
-              onClick={handleDemoParse}
-              disabled={demoParsing}
-            >
-              {demoParsing ? "Parsing..." : "Parse Input"}
-            </button>
+            <div className="demo-actions">
+              {demoRecognitionRef.current && (
+                <button
+                  className={`demo-mic-btn ${demoListening ? "demo-mic-listening" : ""}`}
+                  onClick={() => {
+                    if (demoListening) {
+                      demoRecognitionRef.current.stop();
+                    } else {
+                      setDemoParsed(null);
+                      demoRecognitionRef.current.start();
+                      setDemoListening(true);
+                    }
+                  }}
+                  title={demoListening ? "Stop listening" : "Tap to speak"}
+                >
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    <line x1="12" y1="19" x2="12" y2="23"/>
+                  </svg>
+                  {demoListening ? "Listening..." : "Speak"}
+                </button>
+              )}
+              <button
+                className="btn btn-primary demo-parse-btn"
+                onClick={handleDemoParse}
+                disabled={demoParsing}
+              >
+                {demoParsing ? "Parsing..." : "Parse Input"}
+              </button>
+            </div>
             {demoParsed && renderParsedResult(demoParsed)}
           </div>
           <div className="demo-examples">
