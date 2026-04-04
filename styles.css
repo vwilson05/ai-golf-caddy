@@ -504,6 +504,268 @@ body {
   background: var(--bg-sage);
 }
 
+/* On-Course Preview */
+.preview-section {
+  background: var(--green-deep);
+}
+
+.preview-title,
+.preview-subtitle {
+  color: var(--text-white) !important;
+}
+.preview-subtitle {
+  opacity: 0.8;
+}
+
+.preview-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Phone Mockup */
+.phone-mockup {
+  position: relative;
+  width: 300px;
+  min-width: 280px;
+  background: #111;
+  border-radius: 32px;
+  padding: 12px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4), inset 0 0 0 2px #333;
+}
+
+.phone-notch {
+  width: 100px;
+  height: 22px;
+  background: #111;
+  border-radius: 0 0 14px 14px;
+  margin: 0 auto 0;
+  position: relative;
+  z-index: 2;
+}
+
+.phone-screen {
+  background: var(--green-deep);
+  border-radius: 22px;
+  padding: 8px 18px 14px;
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.phone-hole-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.phone-hole-label {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: 0.04em;
+}
+
+.phone-hole-meta {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+}
+
+.phone-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+}
+
+.phone-section-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.phone-yardage-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-yardage-number {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.2;
+}
+
+.phone-yardage-unit {
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.6;
+}
+
+.phone-yardage-detail {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 4px;
+}
+
+.phone-conditions {
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-conditions-row {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+
+.phone-caddy {
+  background: rgba(212, 168, 67, 0.12);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 12px;
+}
+
+.phone-caddy .phone-section-label {
+  color: var(--gold);
+}
+
+.phone-caddy-text {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.phone-scorecard-row {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+
+.phone-bottom-bar {
+  display: flex;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.phone-bar-btn {
+  flex: 1;
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 8px 4px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.02em;
+}
+
+.phone-bar-btn-primary {
+  background: var(--green-light);
+  color: var(--text-white);
+}
+
+.phone-bar-btn-gold {
+  background: rgba(212, 168, 67, 0.2);
+  color: var(--gold-light);
+}
+
+/* Watch Mockup */
+.watch-mockup {
+  position: relative;
+  width: 180px;
+  min-width: 170px;
+  background: #111;
+  border-radius: 42px;
+  padding: 14px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4), inset 0 0 0 2px #333;
+}
+
+.watch-crown {
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 24px;
+  background: #333;
+  border-radius: 0 3px 3px 0;
+}
+
+.watch-screen {
+  background: #0a0a0a;
+  border-radius: 30px;
+  padding: 20px 16px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.watch-line-main {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-white);
+  text-align: center;
+}
+
+.watch-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin: 2px 0;
+}
+
+.watch-line {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+}
+
+.watch-line-small {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+}
+
+.watch-line-gold {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-align: center;
+}
+
+/* Preview responsive */
+@media (max-width: 768px) {
+  .preview-grid {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .phone-mockup {
+    width: 280px;
+    min-width: 0;
+  }
+
+  .watch-mockup {
+    width: 170px;
+    min-width: 0;
+  }
+}
+
 /* Pain Points */
 .pain-section {
   background: var(--bg-white);

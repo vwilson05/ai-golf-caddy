@@ -288,6 +288,76 @@ export default function Landing({ onTryDemo }: Props) {
         </div>
       </section>
 
+      {/* On-Course Preview */}
+      <section className="section preview-section">
+        <div className="section-inner">
+          <h2 className="section-title preview-title">What it looks like on the course</h2>
+          <p className="section-subtitle preview-subtitle">Glanceable data on your phone and watch. Everything you need, nothing you don't.</p>
+          <div className="preview-grid">
+            {/* Phone Mockup */}
+            <div className="phone-mockup">
+              <div className="phone-notch"></div>
+              <div className="phone-screen">
+                <div className="phone-hole-header">
+                  <span className="phone-hole-label">HOLE 7</span>
+                  <span className="phone-hole-meta">Par 4 &middot; 395 yds</span>
+                </div>
+                <div className="phone-divider"></div>
+
+                <div className="phone-yardage">
+                  <div className="phone-yardage-main">
+                    <span className="phone-section-label">YOUR SHOT</span>
+                    <span className="phone-yardage-number">146 <span className="phone-yardage-unit">yds to pin</span></span>
+                  </div>
+                  <div className="phone-yardage-detail">
+                    Front 135 &middot; Middle 146 &middot; Back 157
+                  </div>
+                </div>
+
+                <div className="phone-conditions">
+                  <span className="phone-section-label">CONDITIONS</span>
+                  <div className="phone-conditions-row">Wind: 8 mph helping, left to right</div>
+                  <div className="phone-conditions-row">Temp: 72&deg;F &middot; Partly cloudy</div>
+                </div>
+
+                <div className="phone-caddy">
+                  <span className="phone-section-label">CADDY ADVICE</span>
+                  <p className="phone-caddy-text">
+                    &ldquo;Your 8-iron averages 148 yards. With the helping wind, it&rsquo;s playing 140. Smooth 8-iron, aim 5 yards right of pin for the wind.&rdquo;
+                  </p>
+                </div>
+
+                <div className="phone-scorecard">
+                  <span className="phone-section-label">SCORECARD</span>
+                  <div className="phone-scorecard-row">Thru 6 &middot; +2 (74 pace)</div>
+                  <div className="phone-scorecard-row">Last hole: Par (2 putts)</div>
+                </div>
+
+                <div className="phone-bottom-bar">
+                  <span className="phone-bar-btn phone-bar-btn-primary">Tap to talk</span>
+                  <span className="phone-bar-btn">Scorecard</span>
+                  <span className="phone-bar-btn phone-bar-btn-gold">Bets: +3 units</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Watch Mockup */}
+            <div className="watch-mockup">
+              <div className="watch-crown"></div>
+              <div className="watch-screen">
+                <div className="watch-line-main">H7 &middot; 146 yds</div>
+                <div className="watch-divider"></div>
+                <div className="watch-line">8-iron &rarr; aim right</div>
+                <div className="watch-line">Wind helping</div>
+                <div className="watch-divider"></div>
+                <div className="watch-line-small">+2 thru 6</div>
+                <div className="watch-line-gold">Bets: +3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pain Points */}
       <section className="section pain-section">
         <div className="section-inner">
