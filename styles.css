@@ -138,6 +138,7 @@ body {
   left: 0;
   right: 0;
   z-index: 100;
+  padding-top: env(safe-area-inset-top, 0px);
   background: var(--green-deep);
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
@@ -835,6 +836,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
+  padding-top: env(safe-area-inset-top, 0px);
 }
 
 .app-header-inner {
