@@ -63,7 +63,7 @@ function getHtmlWithBundle(mainJs: string) {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/styles.css?v=${Date.now()}" />
   <meta name="theme-color" content="#1B4332" />
 </head>
 <body>
@@ -83,7 +83,7 @@ const server = Bun.serve({
     // Static files
     if (path === "/styles.css") {
       const file = Bun.file(join(import.meta.dir, "styles.css"));
-      return new Response(file, { headers: { "Content-Type": "text/css" } });
+      return new Response(file, { headers: { "Content-Type": "text/css", "Cache-Control": "no-cache, must-revalidate" } });
     }
 
     if (path.startsWith("/dist/")) {
