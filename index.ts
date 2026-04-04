@@ -3,7 +3,7 @@ import { parseGolfInput as scriptParse, resolveScore } from "./parser";
 import { parseGolfInput as aiParse, generateCaddyAdvice, generateRoundSummary, generateStatInsights } from "./ai";
 import { join } from "path";
 
-const PORT = 3341;
+const PORT = parseInt(process.env.PORT || "3341");
 const isDev = process.env.NODE_ENV !== "production";
 
 // Auto-seed demo data if empty
