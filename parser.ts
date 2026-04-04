@@ -77,10 +77,49 @@ const CLUB_NORMALIZE: Record<string, string> = {
   'putter': 'Putter',
 };
 
+// Common speech-to-text misrecognitions for golf terms
+const STT_CORRECTIONS: [RegExp, string][] = [
+  // "whole" → "hole"
+  [/\bwhole\s+(\d)/gi, 'hole $1'],
+  // "boogie/boogeee/boogey" → "bogey"
+  [/\bboog[ie]{2,}[y]?\b/gi, 'bogey'],
+  // "pets/pats/puts/petts" → "putts"
+  [/\b(three|two|one|1|2|3|4)\s+pe?[aet]+s\b/gi, '$1 putts'],
+  [/\bpe?[aet]+s\b/gi, 'putts'],
+  // "birdy" → "birdie"
+  [/\bbirdy\b/gi, 'birdie'],
+  // "eagle/egal" misheard
+  [/\begal\b/gi, 'eagle'],
+  // "par three/par for" confusions
+  [/\bpart\b/gi, 'par'],
+  // "iron" misheard as "i earn/i run"
+  [/\b(\d)\s*i\s*(?:earn|run|urn)\b/gi, '$1 iron'],
+  // "whole in one" → "hole in one"
+  [/\bwhole in one\b/gi, 'hole in one'],
+  // "three pet/three pat" → "three putt"
+  [/\b(three|two|one|3|2|1)\s*(?:pet|pat|patt|put)\b/gi, '$1 putt'],
+  // "fore" → "four" (number context)
+  [/\bfore\s+(iron|wood|hybrid)\b/gi, 'four $1'],
+  // "wait/weight" → "wedge"
+  [/\b(pitching|sand|lob|gap)\s*(?:wait|weight|which)\b/gi, '$1 wedge'],
+  // Number words that STT might spell out
+  [/\bto\s+putts\b/gi, 'two putts'],
+  [/\bfor\s+putts\b/gi, 'four putts'],
+  [/\bwon\s+putt\b/gi, 'one putt'],
+];
+
+function correctSTT(text: string): string {
+  let corrected = text;
+  for (const [pattern, replacement] of STT_CORRECTIONS) {
+    corrected = corrected.replace(pattern, replacement);
+  }
+  return corrected;
+}
+
 export function parseGolfInput(text: string): ParsedGolfInput {
   const result: ParsedGolfInput = { confidence: 0 };
   let matches = 0;
-  const lower = text.toLowerCase().trim();
+  const lower = correctSTT(text.toLowerCase().trim());
 
   // Extract hole number
   const holePatterns = [
