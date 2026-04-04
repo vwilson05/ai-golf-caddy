@@ -1,4 +1,4 @@
-# Caddy — AI Golf Caddy
+# Hey Caddy — AI Golf Caddy
 
 ## Tech Stack
 - **Runtime**: Bun (bun.serve(), bun:sqlite, Bun.build())

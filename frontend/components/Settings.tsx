@@ -124,7 +124,7 @@ export default function Settings() {
       <div className="settings-section">
         <h3 className="settings-section-title">About</h3>
         <p className="settings-about">
-          Caddy v1.0 — Voice-First Golf Scoring & Betting<br />
+          Hey Caddy v1.0 — Voice-First Golf Scoring & Betting<br />
           Built by golfers, for golfers.
         </p>
       </div>

@@ -59,7 +59,7 @@ function getHtmlWithBundle(mainJs: string) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Caddy — Voice-First Golf Scoring & Betting</title>
+  <title>Hey Caddy — Voice-First Golf Scoring & Betting</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -401,7 +401,7 @@ const server = Bun.serve({
 });
 
 console.log(`
-  Caddy — AI Golf Caddy
+  Hey Caddy — AI Golf Caddy
   Web: http://localhost:${PORT}
   App: http://localhost:${PORT}/app
   ${isDev ? "[DEV] Dev mode" : "[PROD] Production mode"}

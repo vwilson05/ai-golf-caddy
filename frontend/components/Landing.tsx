@@ -143,7 +143,7 @@ export default function Landing({ onTryDemo }: Props) {
         <div className="landing-header-inner">
           <div className="landing-logo">
             <span className="logo-icon"><LogoIcon /></span>
-            <span className="logo-text">Caddy</span>
+            <span className="logo-text">Hey Caddy</span>
           </div>
           <button className="btn btn-outline-light" onClick={onTryDemo}>
             Try the Demo
@@ -405,10 +405,10 @@ export default function Landing({ onTryDemo }: Props) {
         <div className="landing-footer-inner">
           <div className="footer-logo">
             <span className="logo-icon"><LogoIcon /></span>
-            <span className="logo-text">Caddy</span>
+            <span className="logo-text">Hey Caddy</span>
           </div>
           <p className="footer-tagline">Voice-first golf scoring & betting</p>
-          <p className="footer-copy">&copy; 2026 Caddy. All rights reserved.</p>
+          <p className="footer-copy">&copy; 2026 Hey Caddy. All rights reserved.</p>
         </div>
       </footer>
     </div>

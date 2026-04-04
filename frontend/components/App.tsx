@@ -56,7 +56,7 @@ export default function App() {
                 <line x1="4" y1="22" x2="4" y2="15"/>
               </svg>
             </span>
-            <span className="logo-text">Caddy</span>
+            <span className="logo-text">Hey Caddy</span>
           </button>
         </div>
       </header>
