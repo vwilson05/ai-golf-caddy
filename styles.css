@@ -878,6 +878,28 @@ body {
   padding: 10px 16px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.exit-demo-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.7);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.exit-demo-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border-color: rgba(255,255,255,0.5);
 }
 
 .logo-btn {

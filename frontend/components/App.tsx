@@ -58,6 +58,10 @@ export default function App() {
             </span>
             <span className="logo-text">Hey Caddy</span>
           </button>
+          <button className="exit-demo-btn" onClick={() => navigate("/")}>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Exit Demo
+          </button>
         </div>
       </header>
 
