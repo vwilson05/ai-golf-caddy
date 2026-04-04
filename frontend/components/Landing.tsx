@@ -129,7 +129,7 @@ export default function Landing({ onTryDemo }: Props) {
     }
     if (p.putts !== undefined) fields.push({ label: "Putts", value: p.putts });
     if (p.club) fields.push({ label: "Club", value: p.club });
-    if (p.distance) fields.push({ label: "Distance", value: `${p.distance} yards` });
+    if (p.distance) fields.push({ label: "Approach", value: `${p.distance} yards` });
     if (p.fairway !== undefined && p.fairway !== null) fields.push({ label: "Fairway", value: p.fairway ? "Hit" : `Missed${p.fairwayMiss ? ` ${p.fairwayMiss}` : ""}` });
     if (p.gir) fields.push({ label: "GIR", value: "Yes" });
     if (p.penalties) fields.push({ label: "Penalties", value: `${p.penalties} (${p.penaltyType || 'penalty'})` });

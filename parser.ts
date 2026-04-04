@@ -50,6 +50,7 @@ const CLUB_PATTERNS = [
   /\b(4[- ]?hybrid|4h)\b/i,
   /\b(5[- ]?hybrid|5h)\b/i,
   /\b(\d)[- ]?iron\b/i,
+  /\b(iron)\b/i,
   /\bhit\s+(?:a\s+)?(\d)\b/i,
   /\b(pw|pitching wedge)\b/i,
   /\b(sw|sand wedge)\b/i,
@@ -74,6 +75,7 @@ const CLUB_NORMALIZE: Record<string, string> = {
   'lw': 'LW', 'lob wedge': 'LW',
   'gw': 'GW', 'gap wedge': 'GW',
   'aw': 'AW', 'approach wedge': 'AW',
+  'iron': 'Iron',
   'putter': 'Putter',
 };
 
@@ -96,8 +98,10 @@ const STT_CORRECTIONS: [RegExp, string][] = [
   [/\b(\d)\s*i\s*(?:earn|run|urn)\b/gi, '$1 iron'],
   // "whole in one" → "hole in one"
   [/\bwhole in one\b/gi, 'hole in one'],
-  // "three pet/three pat" → "three putt"
-  [/\b(three|two|one|3|2|1)\s*(?:pet|pat|patt|put)\b/gi, '$1 putt'],
+  // "three pet/three pat/three pot" → "three putt"
+  [/\b(three|two|one|3|2|1)\s*(?:pet|pat|patt|pot|pots|put)\b/gi, '$1 putt'],
+  // "pots" → "putts"
+  [/\bpots\b/gi, 'putts'],
   // "fore" → "four" (number context)
   [/\bfore\s+(iron|wood|hybrid)\b/gi, 'four $1'],
   // "wait/weight" → "wedge"

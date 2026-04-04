@@ -160,7 +160,7 @@ export default function Voice() {
     }
     if (p.putts !== undefined) fields.push({ label: "Putts", value: String(p.putts), key: "putts" });
     if (p.club) fields.push({ label: "Club", value: p.club, key: "club" });
-    if (p.distance) fields.push({ label: "Distance", value: `${p.distance} yds`, key: "distance" });
+    if (p.distance) fields.push({ label: "Approach", value: `${p.distance} yds`, key: "distance" });
     if (p.fairway !== undefined && p.fairway !== null)
       fields.push({
         label: "Fairway",
