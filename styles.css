@@ -693,6 +693,92 @@ body {
 }
 
 /* Credibility */
+/* Platform Section */
+.platform-section {
+  background: var(--bg-sage);
+}
+
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.platform-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 1.8rem 1.2rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(27, 67, 50, 0.06);
+}
+
+.platform-icon {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.platform-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--green-deep);
+  margin-bottom: 0.4rem;
+}
+
+.platform-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.platform-coming-soon {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(212, 168, 67, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.platform-integrations {
+  text-align: center;
+}
+
+.platform-integrations h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--green-deep);
+  margin-bottom: 1rem;
+}
+
+.integration-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.integration-badge {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--green-deep);
+}
+
+@media (max-width: 768px) {
+  .platform-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .credibility-section {
   background: var(--green-deep);
   padding: 56px 24px;

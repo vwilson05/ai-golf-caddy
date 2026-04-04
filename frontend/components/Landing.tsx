@@ -64,14 +64,16 @@ export default function Landing({ onTryDemo }: Props) {
   ];
 
   const features = [
-    { icon: "🎙️", title: "Voice Scoring", desc: "Just talk. Say what happened — your caddy enters the score, putts, penalties, and journal notes." },
-    { icon: "💰", title: "Bet Tracking", desc: "Nassau, skins, wolf, dots, presses. Auto-calculated. No more mental math on 16." },
-    { icon: "📓", title: "Shot Journal", desc: "\"Flushed the 6-iron pin high.\" Your round, your story. Searchable memories of every great shot." },
-    { icon: "📊", title: "Deep Stats", desc: "Fairways, GIR, putts, club distances, miss patterns. Know your game like a pro." },
-    { icon: "🗺️", title: "GPS Yardages", desc: "Front, middle, back. Plus hazard carry distances. Know exactly what club to hit." },
-    { icon: "🤖", title: "AI Caddy", desc: "\"You tend to miss right with your 7-iron. Club up and aim left center.\" Advice that learns your game." },
-    { icon: "⌚", title: "Watch App", desc: "Quick glance scoring on your wrist. Tap to enter scores without pulling out your phone." },
-    { icon: "👥", title: "Group Play", desc: "Everyone in the group can score from their own phone. Live shared scorecard." },
+    { icon: "🎙️", title: "Voice Scoring", desc: "Just talk. Say what happened — your caddy enters the score, putts, penalties, and journal notes. Works on your phone and Apple Watch." },
+    { icon: "💰", title: "Bet Tracking", desc: "Nassau, skins, wolf, dots, presses — auto-calculated. End-of-round settlement with Venmo-ready amounts. No more mental math on 16." },
+    { icon: "📓", title: "Shot Journal", desc: "\"Flushed the 6-iron pin high.\" Your round, your story. Searchable memories of every shot, every course, every round." },
+    { icon: "📊", title: "Deep Stats + GHIN", desc: "Fairways, GIR, putts, club distances, miss patterns. Auto-post to GHIN for handicap tracking. Know your game like a tour pro." },
+    { icon: "🗺️", title: "GPS Yardages", desc: "Front, middle, back — plus hazard carry distances. Clean numbers, no map clutter. Know exactly what club to hit." },
+    { icon: "🤖", title: "AI Caddy That Learns", desc: "After a few rounds, your caddy knows YOUR game. \"You miss right from 150. Aim left center.\" Gets smarter every round you play." },
+    { icon: "⌚", title: "iPhone + Apple Watch", desc: "Full iOS app with Apple Watch companion. Glanceable scorecard, tap-to-talk scoring, bet status on your wrist. Android coming soon." },
+    { icon: "🌦️", title: "Weather + Conditions", desc: "Wind speed, direction, temperature, altitude — factored into club recommendations. \"It's playing 10 yards longer with this headwind.\"" },
+    { icon: "❤️", title: "Apple Health", desc: "Sync your round to Apple Health — steps walked, distance covered, active calories burned. Your golf counts as exercise (finally)." },
+    { icon: "👥", title: "Group Play & Tournaments", desc: "Live shared scorecard for your group. Tournament mode for outings, club championships, and charity events. Leaderboard in real-time." },
   ];
 
   const renderParsedResult = (data: any) => {
@@ -248,6 +250,48 @@ export default function Landing({ onTryDemo }: Props) {
         </div>
       </section>
 
+      {/* Platform */}
+      <section className="section platform-section">
+        <div className="section-inner">
+          <h2 className="section-title">Available everywhere you play</h2>
+          <p className="section-subtitle">One account. Every device. Every round.</p>
+          <div className="platform-grid">
+            <div className="platform-card">
+              <span className="platform-icon">📱</span>
+              <h3>iPhone App</h3>
+              <p>Full-featured iOS app with voice input, GPS, scorecard, and bet tracking. Coming to the App Store.</p>
+            </div>
+            <div className="platform-card">
+              <span className="platform-icon">⌚</span>
+              <h3>Apple Watch</h3>
+              <p>Glanceable scorecard, tap-to-talk scoring, bet status, and yardages — right on your wrist.</p>
+            </div>
+            <div className="platform-card">
+              <span className="platform-icon">🤖</span>
+              <h3>Android</h3>
+              <p>Android app coming soon. Same features, same voice-first experience.</p>
+              <span className="platform-coming-soon">Coming Soon</span>
+            </div>
+            <div className="platform-card">
+              <span className="platform-icon">🌐</span>
+              <h3>Web App</h3>
+              <p>Review rounds, stats, and bet history from any browser. Plan your next round from your desk.</p>
+            </div>
+          </div>
+          <div className="platform-integrations">
+            <h3>Integrations</h3>
+            <div className="integration-badges">
+              <span className="integration-badge">GHIN Handicap</span>
+              <span className="integration-badge">Apple Health</span>
+              <span className="integration-badge">Apple Watch</span>
+              <span className="integration-badge">Weather</span>
+              <span className="integration-badge">GPS Course Data</span>
+              <span className="integration-badge">Venmo / Zelle</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* How It Works */}
       <section className="section how-section">
         <div className="section-inner">
@@ -298,13 +342,15 @@ export default function Landing({ onTryDemo }: Props) {
               <div className="pricing-annual">or $79/year (save 34%)</div>
               <ul className="pricing-features">
                 <li>Everything in Free</li>
-                <li>All bet formats (skins, wolf, dots)</li>
-                <li>30+ statistics</li>
-                <li>Shot journal</li>
-                <li>AI caddy advice</li>
-                <li>GPS yardages</li>
+                <li>All bet formats (skins, wolf, dots, custom)</li>
+                <li>30+ statistics + GHIN integration</li>
+                <li>Shot journal with search</li>
+                <li>AI caddy that learns your game</li>
+                <li>GPS yardages (front/middle/back)</li>
+                <li>Weather &amp; conditions in club recs</li>
                 <li>Apple Watch app</li>
-                <li>Group mode</li>
+                <li>Apple Health sync</li>
+                <li>Group &amp; tournament mode</li>
               </ul>
               {!emailSubmitted ? (
                 <form onSubmit={handleEmailSubmit} className="pricing-email-form">
