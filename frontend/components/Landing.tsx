@@ -220,6 +220,21 @@ export default function Landing({ onTryDemo }: Props) {
         </div>
       </section>
 
+      {/* Video */}
+      <section className="section video-section">
+        <div className="section-inner">
+          <h2 className="section-title">See Hey Caddy in action</h2>
+          <div className="video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/cVObfcei4JA"
+              title="Hey Caddy — Just Talk. Your AI Caddy Handles the Rest."
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Live Demo */}
       <section className="section demo-section">
         <div className="section-inner">

@@ -323,6 +323,32 @@ body {
   font-size: 1.05rem;
 }
 
+/* Video Section */
+.video-section {
+  background: var(--green-900);
+  padding: 60px 0;
+}
+
+.video-section .section-title {
+  color: #fff;
+}
+
+.video-embed {
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 16 / 9;
+  margin: 2rem auto 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.video-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 /* Demo Section */
 .demo-section {
   background: var(--bg-sage);
