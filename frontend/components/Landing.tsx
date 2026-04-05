@@ -226,7 +226,7 @@ export default function Landing({ onTryDemo }: Props) {
           <h2 className="section-title">See Hey Caddy in action</h2>
           <div className="video-embed">
             <iframe
-              src="https://www.youtube.com/embed/cVObfcei4JA"
+              src="https://www.youtube.com/embed/xWvcRGNzKV4"
               title="Hey Caddy — Just Talk. Your AI Caddy Handles the Rest."
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
