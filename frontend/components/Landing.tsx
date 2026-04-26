@@ -385,6 +385,56 @@ export default function Landing({ onTryDemo }: Props) {
         </div>
       </section>
 
+      {/* Three scenarios */}
+      <section className="section scenarios-section">
+        <div className="section-inner">
+          <h2 className="section-title">Built for three kinds of golfer</h2>
+          <p className="section-subtitle">From a quiet solo round to a 12-player league event with money on every line.</p>
+          <div className="scenarios-grid">
+
+            <div className="scenario-card">
+              <div className="scenario-eyebrow">SOLO</div>
+              <h3 className="scenario-title">Just you and the bag</h3>
+              <p className="scenario-lede">You walk the course alone. Phone in pocket, AirPods in. Hey Caddy listens.</p>
+              <ul className="scenario-list">
+                <li><strong>Tee box:</strong> "Hey Caddy, par 4, 153 over water, what should I hit?" — one-line club + cue, spoken back.</li>
+                <li><strong>After the hole:</strong> "Bogeyed 5 with two putts." — score logs, advances to hole 6.</li>
+                <li><strong>On the green:</strong> "Got a sandie." — junk claim attaches automatically.</li>
+                <li><strong>At the 19th:</strong> "Recap my round." — 4-sentence post-round summary in your ear.</li>
+              </ul>
+              <p className="scenario-kicker">Stats, club averages, miss patterns, GPS to the pin — all tracked silently. No tapping required.</p>
+            </div>
+
+            <div className="scenario-card">
+              <div className="scenario-eyebrow">FOURSOME</div>
+              <h3 className="scenario-title">$10/10/10/$20, auto-press, no math at the 19th</h3>
+              <p className="scenario-lede">Saturday game, four guys, money on the line. You set up the Nassau in 30 seconds: 6/6/6/18, $10 unit, Hi-Lo dot scoring, auto-press at 2 down.</p>
+              <ul className="scenario-list">
+                <li><strong>Hole 4:</strong> Team A is up 3 dots — <em>"team B is pressing the front and the overall"</em> — both presses attach instantly.</li>
+                <li><strong>Hole 8, 14:</strong> Auto-presses fire when B falls 2-down again. Ledger keeps the math.</li>
+                <li><strong>Hole 18:</strong> "Aloha press." Doubled stake on the final hole. 1-1 split? Halved, no payout. App handles every edge case.</li>
+                <li><strong>19th hole:</strong> Tap Settle Up — every press, every greenie, who-pays-who, Venmo deep links. Done before the next round of beers.</li>
+              </ul>
+              <p className="scenario-kicker">Don't want everyone using the app? One person keeps score for all four with a single chip-row picker. Four taps per hole.</p>
+            </div>
+
+            <div className="scenario-card">
+              <div className="scenario-eyebrow">TOURNAMENT</div>
+              <h3 className="scenario-title">12 players, 6 teams, $820 calcutta pot</h3>
+              <p className="scenario-lede">League event or member-guest. You build the whole thing in 90 seconds: name, course, 12 players grouped into foursomes, optional Calcutta auction with per-team owner + price.</p>
+              <ul className="scenario-list">
+                <li><strong>Send the link:</strong> One AirDrop or text. Recipients tap → app opens to the event → pick their name → start scoring on their own phone.</li>
+                <li><strong>Live leaderboards:</strong> Individual net + team best-ball, both updating as scores roll in across all 3 foursomes.</li>
+                <li><strong>Side games:</strong> Greenies on every par 3 auto-prompt the foursome — tap closest-to-pin and it's in. Per-foursome Nassau Hi-Lo bets run independently.</li>
+                <li><strong>Calcutta settles itself:</strong> Tap Settle when 18 are in. App computes team standings and pays 50/30/20 (or your chosen split) to the right owners.</li>
+              </ul>
+              <p className="scenario-kicker">Combined ledger across the tournament prize, the calcutta, the foursome bet, and every greenie — one screen, every dollar accounted for.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Features */}
       <section className="section features-section">
         <div className="section-inner">
